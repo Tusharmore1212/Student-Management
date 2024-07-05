@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Update Student</title>
+</head>
+<body>
+    {% include "navbar.html" %}
+    <h1 class="text-center my-3">Update Student</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <form action="/do_update_std/{{ std.id }}/" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="roll">Roll</label>
+                            <input type="text" name="roll" class="form-control" id="roll" placeholder="Enter Roll Number" required value="{{ std.roll }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter Student Name" required value="{{ std.name }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email Id" required value="{{ std.email }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea name="address" class="form-control" id="address" placeholder="Enter Address" required>{{ std.address }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">Contact</label>
+                            <input type="text" name="contact" class="form-control" id="contact" placeholder="Enter Contact Number" required value="{{ std.phone }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Student</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</body>
+</html>
